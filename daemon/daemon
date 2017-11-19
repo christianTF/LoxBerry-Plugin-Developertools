@@ -30,7 +30,7 @@ awk -v s="alias aerr='less $loxberryhome/system/apache2/error.log'" '/^alias aer
 awk -v s="alias cd..='cd ..'" '/^alias cd..=/{$0=s;f=1} {a[++n]=$0} END{if(!f)a[++n]=s;for(i=1;i<=n;i++)print a[i]>ARGV[1]}' /etc/bash.bashrc
 
 # Enable SSH root login
-awk -v s="PermitRootLogin yes" '/^PermitRootLogin/{$0=s;f=1} {a[++n]=$0} END{if(!f)a[++n]=s;for(i=1;i<=n;i++)print a[i]>ARGV[1]}' /etc/ssh/ssh_config
+awk -v s="PermitRootLogin yes" '/^PermitRootLogin/{$0=s;f=1} {a[++n]=$0} END{if(!f)a[++n]=s;for(i=1;i<=n;i++)print a[i]>ARGV[1]}' /etc/ssh/sshd_config
 
 # Create samba share
 cat /etc/samba/smb.conf | grep [\[]root[\]]
