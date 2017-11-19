@@ -24,8 +24,6 @@ fi
 
 chmod -R 774 $loxberryhome/data/plugins/$pluginname
 
-sed -i "s#alias ls.*#alias ls='ls -l --color'#g" /etc/bash.bashrc
-
 # Add bash shortcuts
 awk -v s="alias ls='ls -l --color'" '/^alias ls=/{$0=s;f=1} {a[++n]=$0} END{if(!f)a[++n]=s;for(i=1;i<=n;i++)print a[i]>ARGV[1]}' /etc/bash.bashrc
 awk -v s="alias aerr='less $loxberryhome/system/apache2/error.log'" '/^alias aerr=/{$0=s;f=1} {a[++n]=$0} END{if(!f)a[++n]=s;for(i=1;i<=n;i++)print a[i]>ARGV[1]}' /etc/bash.bashrc
