@@ -36,28 +36,14 @@ no strict "refs"; # we need it for template system and for contructs like ${"ska
 # Variables
 ##########################################################################
 our  $cgi = CGI->new;
-my  $pcfg;
 my  $lang;
-my  $languagefile;
-my  $pname;
-my  $languagefileplugin;
-my  %TPhrases;
-my $topmenutemplate;
-my $maintemplate;
-my $footertemplate;
-
-my $dd_backup_command;
-my $tgz_backup_command;
-my $rsync_backup_command;
-
-our @backuptypes = ('DD', 'RSYNC', 'TGZ');
 
 ##########################################################################
 # Read Settings
 ##########################################################################
 
  my $datestring = localtime();
- print STDERR "========== LoxBerry Backup Version $version === ($datestring) =========\n";
+ print STDERR "========== LoxBerry Developertools Version $version === ($datestring) =========\n";
  print STDERR "Global variables from LoxBerry::System\n";
  print STDERR "Homedir:     $lbhomedir\n";
  print STDERR "Plugindir:   $lbplugindir\n";
@@ -67,15 +53,6 @@ our @backuptypes = ('DD', 'RSYNC', 'TGZ');
  print STDERR "Datadir:     $lbdatadir\n";
  print STDERR "Logdir:      $lblogdir\n";
  print STDERR "Configdir:   $lbconfigdir\n";
-
-# Start with HTML header
-print $cgi->header(
-         -type    =>      'text/html',
-         -charset =>      'utf-8'
-);
-
-# Get language from GET, POST or System setting (from LoxBerry::Web)
-$lang = lblanguage();
 
 ##########################################################################
 # Initialize html templates
@@ -87,11 +64,23 @@ $lang = lblanguage();
 # Print Template
 ##########################################################################
 
-# In LoxBerry V0.2.x we use the old LoxBerry::Web header
+# Start with HTML header
+print $cgi->header(
+         -type    =>      'text/html',
+         -charset =>      'utf-8'
+);
+
+# Get language from GET, POST or System setting (from LoxBerry::Web)
+$lang = lblanguage();
+
+
 LoxBerry::Web::lbheader("Developer Plugin V$version", "http://www.loxwiki.eu:80/x/vICO");
 
+print "<center>";
 print "<p>This plugin has nothing to configure in the Web UI.</p>";
-print "<p>If you have some cool tweaks that I could integrate, let me know!</p>";
+print "<p>If you have some cool tweaks that I could integrate, simply let me know!</p>";
+print "<p>Please, drop your wishes and issues directly to the <a target="_blank" href="https://github.com/christianTF/LoxBerry-Plugin-Developertools">GitHub issues section</a>.</p>";
+print "</center>";
 
 LoxBerry::Web::lbfooter();
 
