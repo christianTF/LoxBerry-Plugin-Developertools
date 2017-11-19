@@ -76,11 +76,11 @@ $lang = lblanguage();
 
 LoxBerry::Web::lbheader("Developer Plugin V$version", "http://www.loxwiki.eu:80/x/vICO");
 
-print "<center>";
-print "<p>This plugin has nothing to configure in the Web UI.</p>";
-print "<p>If you have some cool tweaks that I could integrate, simply let me know!</p>";
-print "<p>Please, drop your wishes and issues directly to the <a target="_blank" href="https://github.com/christianTF/LoxBerry-Plugin-Developertools">GitHub issues section</a>.</p>";
-print "</center>";
+print '<center>';
+print '<p>This plugin has nothing to configure in the Web UI.</p>';
+print '<p>If you have some cool tweaks that I could integrate, simply let me know!</p>';
+print '<p>Please, drop your wishes and issues directly to the <a target="_blank" href="https://github.com/christianTF/LoxBerry-Plugin-Developertools">GitHub issues section</a>.</p>';
+print '</center>';
 
 LoxBerry::Web::lbfooter();
 
