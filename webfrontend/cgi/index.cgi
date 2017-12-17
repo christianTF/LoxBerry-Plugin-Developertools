@@ -17,17 +17,24 @@
 # Modules
 ##########################################################################
 
-eval "use LoxBerry::System";
+eval 
+{	use LoxBerry::System;
+	use LoxBerry::Web;
+};
 if ( $@ ) {
     use FindBin;
 	use lib "$FindBin::Bin/./perllib";
+	use LoxBerry::System;
+	use LoxBerry::Web;
 }
 
-use LoxBerry::System;
-use LoxBerry::Web;
 
 # Version of this script
 our $version = LoxBerry::System::pluginversion();
+
+eval { print STDERR "LoxBerry::Web version: " . $LoxBerry::Web::VERSION . "\n"; };
+eval { print STDERR "LoxBerry::System version: " . $LoxBerry::System::VERSION . "\n"; };
+
 
 use CGI::Carp qw(fatalsToBrowser);
 use CGI qw/:standard/;
