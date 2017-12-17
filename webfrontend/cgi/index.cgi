@@ -16,8 +16,13 @@
 ##########################################################################
 # Modules
 ##########################################################################
-use FindBin;
-use lib "$FindBin::Bin/./perllib";
+
+eval "use LoxBerry::System";
+if ( $@ ) {
+    use FindBin;
+	use lib "$FindBin::Bin/./perllib";
+}
+
 use LoxBerry::System;
 use LoxBerry::Web;
 
